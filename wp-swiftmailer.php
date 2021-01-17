@@ -13,7 +13,10 @@ if ( !function_exists( 'wp_swiftmailer_load' ) )
 
 function wp_swiftmailer_load()
 {
-	require_once __DIR__ . "/vendor/autoload.php";
+	if (!class_exists(Swift_Message::class))
+	{
+		require_once __DIR__ . "/vendor/autoload.php";
+	}
 }
 
 }
